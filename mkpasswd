@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+
+parser = argparse.ArgumentParser(description='Generate password.')
+parser.add_argument('--length', metavar='len', type=int, default=32,
+                    help='length of your password')
+parser.add_argument('--count', metavar='n', type=int, default=3,
+                    help='ammount of passwords to generate')
+
+args = parser.parse_args()
+
+
+def randchar(fr=32, to=127):
+    if fr > to:
+        raise ValueError("First argument must be smaller than second one")
+    return chr(ord(os.urandom(1)) % (to - fr) + fr)
+
+
+for i in range(args.count):
+    for y in range(args.length):
+        print(randchar(33, 127), end='')
+    print()
+
