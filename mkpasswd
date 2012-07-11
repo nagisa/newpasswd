@@ -8,18 +8,31 @@ parser.add_argument('--length', metavar='len', type=int, default=32,
                     help='length of your password')
 parser.add_argument('--count', metavar='n', type=int, default=1,
                     help='ammount of passwords to generate')
-
+parser.add_argument('--random', action='store_true',
+                    help='use /dev/random as source of randomity')
 args = parser.parse_args()
+
+if args.random:
+    try:
+        dev_random = open('/dev/random', 'rb')
+    except IOError:
+        dev_random = None
+
+
+def random_byte():
+    if args.random and dev_random:
+            return dev_random.read(1)
+    else:
+        return os.urandom(1)
 
 
 def randchar(fr=32, to=127):
     if fr > to:
-        raise ValueError("First argument must be smaller than second one")
-    return chr(ord(os.urandom(1)) % (to - fr) + fr)
+        fr, to = to, fr
+    return chr(ord(random_byte()) % (to - fr) + fr)
 
 
 for i in range(args.count):
     for y in range(args.length):
         print(randchar(33, 127), end='')
     print()
-
