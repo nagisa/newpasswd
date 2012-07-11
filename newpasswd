@@ -3,13 +3,13 @@
 import os
 import argparse
 
-parser = argparse.ArgumentParser(description='Generate password.')
-parser.add_argument('-l', '--length', metavar='len', type=int, default=32,
-                    help='length of your password')
-parser.add_argument('-n', '--count', metavar='n', type=int, default=1,
-                    help='ammount of passwords to generate')
+parser = argparse.ArgumentParser(description='Generate a brand new password.')
+parser.add_argument('-l', '--length', metavar='LEN', type=int, default=32,
+                    help='Length of your password.')
+parser.add_argument('-n', '--count', metavar='N', type=int, default=1,
+                    help='Ammount of passwords to generate.')
 parser.add_argument('-r', '--random', action='store_true',
-                    help='use /dev/random as source of randomity')
+                    help='Use /dev/random as source of randomity.')
 args = parser.parse_args()
 
 if args.random:
