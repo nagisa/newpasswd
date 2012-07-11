@@ -1,9 +1,9 @@
-mkpasswd
-========
+newpasswd
+=========
 
 Quick password factory written in Python3.
 
 ```bash
-chmod +x mkpasswd
-sudo mv ./mkpasswd /usr/bin/
+chmod +x newpasswd
+sudo mv ./newpasswd /usr/bin/
 ```
