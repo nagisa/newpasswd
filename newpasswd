@@ -32,7 +32,5 @@ def randchar(fr=32, to=127):
     return chr(ord(random_byte()) % (to - fr) + fr)
 
 
-for i in range(args.count):
-    for y in range(args.length):
-        print(randchar(33, 127), end='')
-    print()
+for _ in range(args.count):
+    print("".join(randchar(33, 127) for _ in range(args.length)))
