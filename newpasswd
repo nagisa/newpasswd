@@ -1,7 +1,13 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import os
 import argparse
+
+# Python2 compatibility
+try:
+    chr(256)
+except ValueError:
+    chr = unichr
 
 parser = argparse.ArgumentParser(description='Generate a brand new password.')
 parser.add_argument('-l', '--length', metavar='LEN', type=int, default=32,
@@ -10,7 +16,17 @@ parser.add_argument('-n', '--count', metavar='N', type=int, default=1,
                     help='ammount of passwords to generate')
 parser.add_argument('-r', '--random', action='store_true',
                     help='use /dev/random as source of randomity')
+parser.add_argument('--extended', action='store_true',
+                    help='use characters from extended latin to generate '
+                         'password.')
 args = parser.parse_args()
+
+
+letters = [chr(i) for i in range(0x21, 0x7F)]
+if args.extended:
+    # Add Latin-1 Supplement, Extended-A and Extended-B to list of characters.
+    letters.extend([chr(i) for i in range(0xA1, 0x250)])
+
 
 if args.random:
     try:
@@ -26,11 +42,9 @@ def random_byte():
         return os.urandom(1)
 
 
-def randchar(fr=32, to=127):
-    if fr > to:
-        fr, to = to, fr
-    return chr(ord(random_byte()) % (to - fr) + fr)
+def random_chr():
+    return letters[ord(random_byte()) % len(letters)]
 
 
 for _ in range(args.count):
-    print("".join(randchar(33, 127) for _ in range(args.length)))
+    print("".join(random_chr() for _ in range(args.length)))
