@@ -21,6 +21,8 @@ parser.add_argument('--extended', action='store_true',
                          'password')
 parser.add_argument('--greek', action='store_true',
                     help='use greek characters to generate a password')
+parser.add_argument('--cyrillic', action='store_true',
+                    help='use cyrillic characters to generate a password')
 args = parser.parse_args()
 
 
@@ -31,6 +33,10 @@ if args.extended:
 if args.greek:
     # Add Greek and Coptic to list of characters.
     letters.extend([chr(i) for i in range(0x374, 0x400)])
+if args.cyrillic:
+    # Add Cyrillic to list of characters...
+    letters.extend([chr(i) for i in range(0x400, 0x528)])
+
 
 
 if args.random:
