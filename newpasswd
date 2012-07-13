@@ -17,8 +17,10 @@ parser.add_argument('-n', '--count', metavar='N', type=int, default=1,
 parser.add_argument('-r', '--random', action='store_true',
                     help='use /dev/random as source of randomity')
 parser.add_argument('--extended', action='store_true',
-                    help='use characters from extended latin to generate '
-                         'password.')
+                    help='use characters from extended latin to generate a '
+                         'password')
+parser.add_argument('--greek', action='store_true',
+                    help='use greek characters to generate a password')
 args = parser.parse_args()
 
 
@@ -26,6 +28,9 @@ letters = [chr(i) for i in range(0x21, 0x7F)]
 if args.extended:
     # Add Latin-1 Supplement, Extended-A and Extended-B to list of characters.
     letters.extend([chr(i) for i in range(0xA1, 0x250)])
+if args.greek:
+    # Add Greek and Coptic to list of characters.
+    letters.extend([chr(i) for i in range(0x374, 0x400)])
 
 
 if args.random:
