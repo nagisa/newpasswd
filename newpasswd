@@ -17,12 +17,12 @@ parser.add_argument('-n', '--count', metavar='N', type=int, default=1,
 parser.add_argument('-r', '--random', action='store_true',
                     help='use /dev/random as source of randomity')
 parser.add_argument('--extended', action='store_true',
-                    help='use characters from extended latin to generate a '
+                    help='use more latin characters when generating a '
                          'password')
 parser.add_argument('--greek', action='store_true',
-                    help='use greek characters to generate a password')
+                    help='use greek characters when generating a password')
 parser.add_argument('--cyrillic', action='store_true',
-                    help='use cyrillic characters to generate a password')
+                    help='use cyrillic characters when generating a password')
 args = parser.parse_args()
 
 

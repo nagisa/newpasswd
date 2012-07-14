@@ -18,7 +18,7 @@ SYNOPSIS
 
 ::
 
-    newpasswd [-h] [-l LEN] [-n N] [-r]
+    newpasswd [-h] [-l LEN] [-n N] [-r] [--extended] [--greek] [--cyrillic]
 
 OPTIONS
 =======
@@ -27,6 +27,12 @@ OPTIONS
 --length=LEN, -l LEN    Length of your password.
 --count=N, -n N         Ammount of passwords to generate.
 --random, -r            Use /dev/random as source of randomity.
+--extended              Use characters from Latin Supplement, Extended-A and
+                        Extended-B blocks in password.
+--greek                 Use characters from Greek and Coptic block in
+                        password.
+--cyrillic              Use characters from Cyrillic and Cyrillic Supplement
+                        blocks in password.
 
 ISSUES
 ======
