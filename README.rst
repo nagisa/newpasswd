@@ -5,7 +5,8 @@ INSTALLATION
 
 ::
 
-    sudo setup.py install
+    chmod +x newpasswd
+    sudo mv ./newpasswd /usr/bin/
 
 DEPENDENCIES
 ============
