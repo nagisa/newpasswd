@@ -83,15 +83,15 @@ if __name__ == "__main__":
 
     if args.cjk or args.all:
         # CJK Unified Ideographs
-        letters.extend(chr(i) for i in range(0x4E00, 0xA000))
+        letters.extend(chr(i) for i in range(0x4E00, 0x9FCC))
         # CJK Unified Ideographs Extension A
-        letters.extend(chr(i) for i in range(0x3400, 0x4DC0))
+        letters.extend(chr(i) for i in range(0x3400, 0x4DB6))
         # CJK Unified Ideographs Extension B
-        letters.extend(chr(i) for i in range(0x20000, 0x2A6E0))
+        letters.extend(chr(i) for i in range(0x20000, 0x2A6D7))
         # CJK Unified Ideographs Extension C
-        letters.extend(chr(i) for i in range(0x2A700, 0x2B740))
+        letters.extend(chr(i) for i in range(0x2A700, 0x2B735))
         # CJK Unified Ideographs Extension D
-        letters.extend(chr(i) for i in range(0x2B740, 0x2B820))
+        letters.extend(chr(i) for i in range(0x2B740, 0x2B81E))
 
 
     # Generate required ammount of passwords.
