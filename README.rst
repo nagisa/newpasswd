@@ -1,4 +1,4 @@
-.. include:: newpasswd.rst
+.. include:: src/newpasswd.rst
 
 INSTALLATION
 ============
