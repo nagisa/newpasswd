@@ -8,7 +8,7 @@ arch=('any')
 depends=('python')
 short_hash='4f7d8cf'
 source=('https://github.com/simukis/newpasswd/zipball/'$short_hash)
-md5sums=('dbbe8e90b3802ec608efe5b086230695')
+md5sums=('c91a04504c8be7e3c5960297fc1185c5')
 
 package() {
     cd $srcdir/simukis-newpasswd-$short_hash/
