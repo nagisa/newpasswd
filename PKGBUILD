@@ -6,7 +6,7 @@ url="https://github.com/simukis/newpasswd"
 license=('ICS')
 arch=('any')
 depends=('python')
-short_hash='57b1305'
+short_hash='4f7d8cf'
 source=('https://github.com/simukis/newpasswd/zipball/'$short_hash)
 md5sums=('dbbe8e90b3802ec608efe5b086230695')
 
