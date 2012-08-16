@@ -9,7 +9,7 @@ generate a brand new password
 :Author: Written by Simonas Kazlauskas <https://github.com/simukis>.
 :Date:   2012-08-13
 :Copyright: Copyright © 2012 Simonas Kazlauskas. Licence: ICS.
-:Version: 0.2
+:Version: 0.3
 :Manual section: 1
 :Manual group: User Commands
 
