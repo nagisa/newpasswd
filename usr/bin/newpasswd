@@ -2,12 +2,15 @@
 import argparse
 import unicodedata
 import random
+from sys import stdout
 
 # Python 2 compatibility
 try:
     chr(256)
 except ValueError:
     chr = unichr
+    import codecs
+    stdout = codecs.getwriter('utf-8')(stdout)
 
 # Arguments' parser
 parser = argparse.ArgumentParser(description='Generate a brand new password.')
@@ -96,4 +99,5 @@ if __name__ == "__main__":
 
     # Generate required ammount of passwords.
     for _ in range(args.count):
-        print("".join(random_chr(letters) for _ in range(args.length)))
+        stdout.write("".join(random_chr(letters) for _ in range(args.length)))
+        stdout.write('\n')
