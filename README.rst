@@ -1,11 +1,16 @@
-.. include:: src/newpasswd.rst
-
 INSTALLATION
 ============
 
 ::
 
     sudo cp -r usr /
+
+USAGE et cetera
+===============
+
+See ``man 1 newpasswd``. `Online version`_
+
+.. _Online version: https://github.com/simukis/newpasswd/blob/master/src/newpasswd.rst
 
 DEPENDENCIES
 ============
