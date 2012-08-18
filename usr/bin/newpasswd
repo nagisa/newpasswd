@@ -12,6 +12,11 @@ except ValueError:
     import codecs
     stdout = codecs.getwriter('utf-8')(stdout)
 
+try:
+    randint = random.SystemRandom().randint
+except: # TODO: What does SystemRandom raise if it's unavailable?
+    randint = random.randint
+
 # Arguments' parser
 parser = argparse.ArgumentParser(description='Generate a brand new password.')
 parser.add_argument('-l', '--length', metavar='LEN', type=int, default=32,
@@ -42,7 +47,7 @@ def chrname(char):
 
 
 def random_chr(letters):
-    return letters[random.randint(0, len(letters) - 1)]
+    return letters[randint(0, len(letters) - 1)]
 
 
 if __name__ == "__main__":
@@ -101,3 +106,4 @@ if __name__ == "__main__":
     for _ in range(args.count):
         stdout.write("".join(random_chr(letters) for _ in range(args.length)))
         stdout.write('\n')
+        stdout.flush()
